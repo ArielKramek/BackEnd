@@ -87,11 +87,3 @@ console.log(carrosJSON)
 const fs = require("fs")
 fs.writeFileSync("carros.json",carrosJSON)
 
-const carrosArquivo = require("./carros.json")
-console.log(carrosArquivo)
-
-carrosArquivo.forEach((veiculo)=>{
-
-console.log(veiculo.marca + " modelo: " + veiculo.modelo+ " ano: "+ veiculo.ano+ " velociade maxima: "+veiculo.velocidade_max+ " valor: "+ veiculo.valor+ " estado: "+ veiculo.estado )
-    
-})
