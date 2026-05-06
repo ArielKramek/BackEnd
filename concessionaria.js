@@ -38,28 +38,25 @@ function adicionarcarros(modelo, marca, ano, velocidade_max, valor, estado){
     valor:valor,
     estado:estado,
     
-
-
-
-
-
  }
  )}
 salvar()
-
-
-
-}
-function filtrar(){
-
-
-
-
-
-    
 }
 
 
+function filtro(){
+    console.log("\n##### carros com lançamento depois de 2015\n")
+
+    const carrosfiltrados = carrosArquivo.filter(
+        (v) => Number(v.veiculos.ano) >= 2015
+    )
+
+    personagensFiltrados.forEach((p)=>{
+        console.log(
+            `${v.modelo} | marca: ${v.marca} | ano: ${v.ano} | velocidade_max: ${v.velocidade_max} | valor: ${v.valor} | estado: ${v.estado}`
+        )
+    })
+}
 
 
 
@@ -77,8 +74,6 @@ function filtrar(){
 
 
 
-
-
-
-adicionarcarros("vectra","chevrolet",1998, 210,17.000, "bom")
+adicionarcarros("vectra","chevrolet",1998, "210 km/h","R$ 17000", "bom")
 mostrarcarros()
+filtro()

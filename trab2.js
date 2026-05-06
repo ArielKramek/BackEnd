@@ -86,4 +86,3 @@ console.log(carrosJSON)
 
 const fs = require("fs")
 fs.writeFileSync("carros.json",carrosJSON)
-
