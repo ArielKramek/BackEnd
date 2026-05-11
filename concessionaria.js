@@ -24,7 +24,6 @@ function adicionarcarros(modelo, marca, ano, velocidade_max, valor, estado){
         veiculo => veiculo.marca ===marca
     )
     if(existe===true){
-
         console.log("O novo veículo chegou a concessionaria "+ modelo + " da "+ marca+ " do ano de " +ano+ " com a velocidade maxima de "+ velocidade_max+ "no valor de R$ "+ valor+ "em um estado "+ estado+ "\n")
         
     }
@@ -33,9 +32,9 @@ function adicionarcarros(modelo, marca, ano, velocidade_max, valor, estado){
     carrosArquivo.push({
     modelo:modelo,
     marca:marca,
-    ano:ano,
+    ano:Number(ano),
     velocidade_max:velocidade_max,
-    valor:valor,
+    valor:Number(valor),
     estado:estado,
     
  }
@@ -45,15 +44,33 @@ salvar()
 
 
 function filtro(){
-    console.log("\n##### carros com lançamento depois de 2015\n")
+    console.log("\n##### carros com lançamento depois de 2020#####\n")
 
-    const carrosfiltrados = carrosArquivo.filter(
-        (v) => Number(v.veiculos.ano) >= 2015
+    const carrosFiltrados = carrosArquivo.filter(
+        (v) => Number(v.ano) >= 2020
     )
 
-    personagensFiltrados.forEach((p)=>{
+    carrosFiltrados.forEach((v)=>{
         console.log(
             `${v.modelo} | marca: ${v.marca} | ano: ${v.ano} | velocidade_max: ${v.velocidade_max} | valor: ${v.valor} | estado: ${v.estado}`
+        )
+    })
+}
+
+
+    function Desconto_valor(){
+    console.log("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Carros com 15% de desconto !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n")
+    
+    const carrosComDesconto = carrosArquivo.map((veiculo)=> {
+        return {
+            ...veiculo,
+            valor: Number(veiculo.valor) * 0.85
+        }
+    })
+
+    carrosComDesconto.forEach((v)=>{
+        console.log(
+            `${v.modelo} | marca: ${v.marca} |preço: ${v.valor.toFixed(2)}`
         )
     })
 }
@@ -74,6 +91,7 @@ function filtro(){
 
 
 
-adicionarcarros("vectra","chevrolet",1998, "210 km/h","R$ 17000", "bom")
+adicionarcarros("vectra","chevrolet",1998, "210 km/h",17000, "bom")
 mostrarcarros()
 filtro()
+Desconto_valor()
