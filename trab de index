@@ -1,0 +1,18 @@
+const express = require("express")
+const app = express()
+const port = 3000
+app.use(express.json())
+
+app.get("/ola", (req, res)=>{
+    res.json({resposta:"olá mundo"})
+})
+
+app.get("/perfil", (req, res)=>{ 
+   res.json({nome:"Ariel Gregorio Kramek",
+            idade: "16 anos"
+})
+})
+
+app.listen(port, ()=>{
+    console.log("API executando na porta "+ port)
+})
